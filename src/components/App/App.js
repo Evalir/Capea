@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Navbar from '../Navbar/Navbar';
 
 function App() {
   return (
-    <div>
-      klk
-      <div>con klk</div>
+    <div style={{ height: '100%' }}>
+      <Navbar />
+      <div>klk</div>
     </div>
   );
 }
