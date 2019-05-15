@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import { ThemeProvider } from 'styled-components';
 
-// REDUX
+// Redux
 import reducers from './reducers';
 import App from './components/App/App';
 
-// STYLED COMPONENTS
+// Styled components
 import { theme } from './styles/theme.js';
 
 import './app.css';

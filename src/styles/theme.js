@@ -4,4 +4,5 @@ export const theme = {
   grey: '#969696',
   white: '#FAFAFA',
   rose: '#E64C72',
+  greydivider: '#393939',
 };
