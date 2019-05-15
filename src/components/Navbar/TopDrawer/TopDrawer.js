@@ -2,13 +2,12 @@ import React from 'react';
 import { StyledDrawer } from './Styled';
 
 const TopDrawer = props => {
-  const isOpen = props.isOpen ? 'show' : 'hide';
+  const show = props.show ? true : false;
   return (
-    <StyledDrawer className={`sidedrawer ${isOpen}`}>
+    <StyledDrawer show={show}>
       <ul>
         <li>Shots</li>
         <li>Designers</li>
-        <li>Sign in</li>
       </ul>
     </StyledDrawer>
   );

@@ -1,12 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { StyledNavbar, StyledNav, StyledLogoLink, Spacer } from './Styled';
 import TopDrawer from './TopDrawer/TopDrawer';
-/* TODO:  
-  - create a separate mobile / desktop navbar and just render the fitting one here.
-*/
+
 const Navbar = props => {
-  return (
-    <StyledNavbar>
+  const [isMobile, setIsMobile] = useState(false);
+  const [show, setShow] = useState(false);
+  /**
+   * Renders mobile view for the navbar.
+   */
+  function renderMobile() {
+    return (
+      <>
+        <StyledNav>
+          <div>
+            <ul>
+              <li>
+                <StyledLogoLink>Capea</StyledLogoLink>
+              </li>
+            </ul>
+          </div>
+          <Spacer />
+          <div>
+            <ul>
+              <li>Sign in</li>
+              <li>
+                <button onClick={() => setShow(!show)}>Click</button>
+              </li>
+            </ul>
+          </div>
+        </StyledNav>
+        <TopDrawer show={show} />
+      </>
+    );
+  }
+  /**
+   * Render desktop view for the navbar.
+   */
+  function renderDesktop() {
+    return (
       <StyledNav>
         <div>
           <ul>
@@ -26,8 +58,22 @@ const Navbar = props => {
           </ul>
         </div>
       </StyledNav>
-      {/* <TopDrawer /> */}
-    </StyledNavbar>
+    );
+  }
+
+  useEffect(() => {
+    function handleSizeChange() {
+      const res =
+        window.innerWidth <= 768 ? setIsMobile(true) : setIsMobile(false);
+      return res;
+    }
+    window.addEventListener('resize', handleSizeChange);
+    window.innerWidth <= 768 ? setIsMobile(true) : setIsMobile(false);
+    return () => window.removeEventListener('resize', handleSizeChange);
+  }, []);
+
+  return (
+    <StyledNavbar>{isMobile ? renderMobile() : renderDesktop()}</StyledNavbar>
   );
 };
 

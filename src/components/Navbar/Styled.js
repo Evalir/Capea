@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const Spacer = styled.div`
   flex: 1;
 `;
 export const StyledNavbar = styled.header`
   position: relative;
-  z-index: 100;
+  z-index: 200;
   width: 100%;
   background-color: ${props => props.theme.black};
   height: 42px;
