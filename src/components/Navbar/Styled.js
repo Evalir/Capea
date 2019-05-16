@@ -37,4 +37,5 @@ export const StyledLogoLink = styled.a`
   font-family: 'Pacifico', 'Questrial', Helvetica;
   font-size: 1.4em;
   color: white;
+  align-self: center;
 `;

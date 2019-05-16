@@ -3,7 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { StyledNavbar, StyledNav, StyledLogoLink, Spacer } from './Styled';
 import TopDrawer from './TopDrawer/TopDrawer';
 
-const Navbar = props => {
+/**
+ * Navbar component. Supports mobile and desktop view.
+ * @namespace Navbar
+ */
+const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [show, setShow] = useState(false);
   /**
@@ -60,7 +64,7 @@ const Navbar = props => {
       </StyledNav>
     );
   }
-
+  // Track window size; add <= 768px render the mobile navbar view.
   useEffect(() => {
     function handleSizeChange() {
       const res =
