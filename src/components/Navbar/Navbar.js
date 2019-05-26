@@ -64,7 +64,7 @@ const Navbar = () => {
       </StyledNav>
     );
   }
-  // Track window size; add <= 768px render the mobile navbar view.
+  // Track window size; at <= 768px render the mobile navbar view.
   useEffect(() => {
     function handleSizeChange() {
       const res =
